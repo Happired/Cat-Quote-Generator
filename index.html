@@ -5,6 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cat Quote Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <link href="css/style.css" rel="stylesheet" >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="headings">
@@ -12,24 +19,23 @@
         <p>Press the button to generate a random cat picture with a purr-fect quote to go with it!</p>
         
     </div>
-
-    <div id = "present">
-        <img id = "imageid" src="https://cdn2.thecatapi.com/images/a73.gif" alt="">
-        <p id="quote">Life is a journey...</p>
+    <div id="container">
+        <div class = "row">
+            <div id = "present" class = "col-md">
+                <img id = "imageid" src="https://cdn2.thecatapi.com/images/a73.gif" alt="">
+                <p id="quote">Life is a journey...</p>
+            </div>
+        
+            <div id="generator" class = "col-md">
+                <form action="/" method="post">
+                    <button id = "genCat" type="submit" name ="genCat">Generate Cat!</button>
+                </form>
+            </div>
+        </div>
     </div>
+    
+    
 
-    <div id="generator">
-        <form action="/" method="post">
-            <button type="submit" name ="genCat">Generate Cat!</button>
-        </form>
-    </div>
-
-    <script>
-        var socket = io.connect('htt[s://localhost:3000');
-
-        socket.on('message'), function(data, json){
-            console.log(data, json)
-        }
-    </script>
+    
 </body>
 </html>
