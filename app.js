@@ -16,27 +16,27 @@ let quotes = JSON.parse(rawdata);
 
 //responds to post request with button press
 app.post("/", function(req, res){
-    var url = "https://api.thecatapi.com/v1/images/search";
+    var url = "https://aws.random.cat/meow";
     var imageUrl = "";
     
-
+    try {
     https.get(url, function(response){
   
-        try {response.on("data", function(data){
+        response.on("data", function(data){
             var catData = JSON.parse(data);
 
-            imageUrl = catData[0].url;
+            imageUrl = catData.file;
             console.log(imageUrl);
 
 
             var theQuote = quotes[Math.ceil(Math.random()*quotes.length)].text
 
             res.send("<img src= "+imageUrl+" style = 'width: 200px; height: auto;'><br><p>"+theQuote+"</p><br><br><form action = '/' method = 'post'> <button type='submit'>Generate Cat</button></form>");
-        })}
-        catch (e) {
-            res.send("someone messed up lol contact the developer ahaha");
-        }
-    })
+        })
+        
+    })} catch (e) {
+        res.send('someone messed up lol')
+    }
 
     //Math.ceil(Math.random())*
 
@@ -63,7 +63,3 @@ app.post("/", function(req, res){
 app.listen(process.env.PORT|| 3000, function(){
     console.log("Server is running on port 3000");
 })
-
-
-//api key:
-// 73709aa0-828d-4d85-9b3e-cd700e024af8
