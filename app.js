@@ -66,5 +66,3 @@ app.listen(3000, function(){
 })
 
 
-//api key:
-// 73709aa0-828d-4d85-9b3e-cd700e024af8
