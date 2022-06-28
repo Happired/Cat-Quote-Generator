@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Quote Generator</title>
+</head>
+<body>
+    <div id="headings">
+        <h1>Cat Quote Generator!</h1>
+        <p>Press the button to generate a random cat picture with a purr-fect quote to go with it!</p>
+        
+    </div>
+
+    <div id = "present">
+        <img id = "imageid" src="https://cdn2.thecatapi.com/images/a73.gif" alt="">
+        <p id="quote">Life is a journey...</p>
+    </div>
+
+    <div id="generator">
+        <form action="/" method="post">
+            <button type="submit" name ="genCat">Generate Cat!</button>
+        </form>
+    </div>
+
+    <script>
+        var socket = io.connect('htt[s://localhost:3000');
+
+        socket.on('message'), function(data, json){
+            console.log(data, json)
+        }
+    </script>
+</body>
+</html>
