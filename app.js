@@ -12,7 +12,6 @@ app.get("/", function(req, res){
 
 let rawdata = fs.readFileSync('quotes.json');
 let quotes = JSON.parse(rawdata);
-console.log(quotes);
 
 
 //responds to post request with button press
@@ -22,7 +21,7 @@ app.post("/", function(req, res){
     
 
     https.get(url, function(response){
-
+  
         try {response.on("data", function(data){
             var catData = JSON.parse(data);
 
@@ -61,7 +60,7 @@ app.post("/", function(req, res){
     
 })
 
-app.listen(3000, function(){
+app.listen(process.env.PORT|| 3000, function(){
     console.log("Server is running on port 3000");
 })
 
